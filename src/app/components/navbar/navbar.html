@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom"
+     [class.scrolled]="isScrolled">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+  <img src="assets/images/knm.png" alt="Koinet Media" class="brand-logo" style="height: 52px; width: auto; display: block;">
+      <!-- <span class="brand-text">Koinet<span>Media</span></span> -->
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler custom-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/homecomponent" routerLinkActive="active-link">Home</a>
+        </li>
+
+        <li class="nav-item dropdown hover-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" (click)="$event.preventDefault()">
+            What We Do
+          </a>
+          <ul class="dropdown-menu custom-dropdown">
+           
+          
+            <li><a class="dropdown-item" href="/whatwedo/experties">Expertise & Services</a></li>
+            <li><a class="dropdown-item" href="/whatwedo/accountbasedmarketing">Account-Based Marketing</a></li>
+            <li><a class="dropdown-item" href="/whatwedo/multichannelleads">Multi-Channel Lead</a></li>
+            <li><a class="dropdown-item" href="/whatwedo/contentsyndication">Content Syndication</a></li>
+            <li><a class="dropdown-item" href="/whatwedo/emailmarketing">Email Marketing</a></li>
+            <li><a class="dropdown-item" href="/whatwedo/dataAppendAndCleansing">Data Append & Cleansing</a></li>
+            <li><a class="dropdown-item" href="/whatwedo/demandgeneration">Demand Generation</a></li>
+            <li><a class="dropdown-item" href="/whatwedo/appointmentgeneration">Appointment Generation</a></li>
+            <li><a class="dropdown-item" href="whatwedo/accountprofiling">Account Profiling</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+  <a class="nav-link" routerLink="/focus-sectors">Focus Audiences</a>
+</li>
+
+
+        <li class="nav-item dropdown hover-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" (click)="$event.preventDefault()">
+            Resources
+          </a>
+          <ul class="dropdown-menu custom-dropdown">
+            <li><a class="dropdown-item" href="/blog">Blog</a></li>
+            <li><a class="dropdown-item" target="_blank" href="https://thetechgossip.com/resources/">Repository</a></li>
+            <li><a class="dropdown-item" href="/infographic">Infographics</a></li>
+            <li><a class="dropdown-item" href="/articles">Articles</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown hover-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" (click)="$event.preventDefault()">
+            About Us
+          </a>
+          <ul class="dropdown-menu custom-dropdown">
+            <li><a class="dropdown-item" href="/overview">Overview</a></li>
+            <li><a class="dropdown-item" href="/ourstory">Our Story</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+          <a class="btn contact-btn" href="/contact">
+            Contact Us <i class="fa-solid fa-arrow-up-right contact-icon"></i>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

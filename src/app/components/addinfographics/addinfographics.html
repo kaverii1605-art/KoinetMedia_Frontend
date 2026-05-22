@@ -1,0 +1,137 @@
+<div id="notificationContainer" class="notification-container"></div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="sticky-top text-end">
+      <button class="btn btn-warning rounded-3" routerLink="/login">
+        Log Out
+      </button>
+    </div>
+
+    <div class="text-center my-4">
+      <p class="display-4 fw-bold text-dark">Create Infographic!</p>
+    </div>
+
+    <div class="col-lg-4 col-sm-12 mb-3">
+      <div class="card rounded-4 border-0 shadow">
+        <div class="card-body text-center">
+          <h5 class="card-title">Total Infographics</h5>
+          <p class="card-text fs-1 fw-bold">
+            {{ totalInfographics || 'Loading...' }}
+          </p>
+          <a routerLink="/infographic" class="viewblog">View All Infographics</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-12"></div>
+
+    <div class="col-lg-4 col-sm-12 mb-3">
+      <div class="action-buttons">
+
+        <a class="btn btn-danger btn-lg rounded-5" routerLink="/addinfographics">
+          Add Infographic +
+        </a>
+
+        <div class="secondary-buttons">
+          <a class="btn btn-warning btn-sm" routerLink="/addblog">
+            Add Blog +
+          </a>
+
+          <a class="btn btn-warning btn-sm" routerLink="/addarticle">
+            Add Article +
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <form (ngSubmit)="submitInfographic()" #infoForm="ngForm">
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            [(ngModel)]="infographic.title"
+            required
+          />
+        </div>
+
+        <div class="form-group my-3">
+          <label for="category" class="mb-1">Category</label>
+          <select
+            class="form-control"
+            id="category"
+            name="category"
+            [(ngModel)]="infographic.category"
+            required
+          >
+            <option value="">Select Category</option>
+            <option *ngFor="let c of categories" [value]="c">
+              {{ c }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group my-3">
+          <label for="imageUrl">Image URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            [(ngModel)]="infographic.imageUrl"
+            required
+          />
+        </div>
+
+        <!-- <div class="form-group my-3">
+          <label for="description">Short Description</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            rows="5"
+            [(ngModel)]="infographic.content"
+            required
+          ></textarea>
+        </div> -->
+
+        <div class="form-group my-3">
+          <label for="content">Content</label>
+          <textarea
+            id="content"
+            name="content"
+            class="form-control"
+            rows="10"
+            [(ngModel)]="infographic.content"
+            required
+          ></textarea>
+        </div>
+
+        <div class="text-center my-2">
+          <button
+            type="submit"
+            class="btn btn-danger w-25 rounded-5 btn-lg"
+            [disabled]="infoForm.invalid"
+          >
+            Submit
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

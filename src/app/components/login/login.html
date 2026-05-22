@@ -1,0 +1,40 @@
+<div class="login-page">
+  <div class="login-container">
+
+    <div class="left-panel">
+      <img src="assets/images/knm.png" class="logo-left">
+
+      <div class="left-content">
+        <h2>Welcome Back!</h2>
+        <p>Login to continue with Koinet Media</p>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <h2>Login</h2>
+
+      <form (ngSubmit)="loginUser()" #loginForm="ngForm">
+
+        <div class="input-group">
+          <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required>
+          <i class="fas fa-envelope"></i>
+        </div>
+
+        <div class="input-group">
+          <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="password" placeholder="Password" required>
+          <i class="fas fa-eye" (click)="togglePassword()"></i>
+        </div>
+
+        <button type="submit" class="btn-login" [disabled]="loginForm.invalid">
+          Log In
+        </button>
+
+      </form>
+
+      <div id="message" [style.color]="messageColor">
+        {{ message }}
+      </div>
+    </div>
+
+  </div>
+</div>

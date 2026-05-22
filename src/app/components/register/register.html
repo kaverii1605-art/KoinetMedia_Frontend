@@ -1,0 +1,58 @@
+<div class="signup-page">
+  <div class="signup-container">
+
+    <div class="left-panel">
+      <img src="assets/images/knm.png" class="logo-left" alt="logo">
+
+      <div class="left-content">
+        <h2>Create your Account</h2>
+        <p>Join Koinet Media and grow your digital presence</p>
+      </div>
+    </div>
+
+    <div class="right-panel">
+
+      <h2>Sign Up</h2>
+
+      <form (ngSubmit)="registerUser()" #registerForm="ngForm">
+
+        <div class="input-group">
+          <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group">
+          <input type="text" name="username" [(ngModel)]="username" placeholder="Username" required>
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required>
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password" required>
+        </div>
+
+        <div class="input-group">
+          <select name="role" [(ngModel)]="role" required>
+            <option value="">Select Role</option>
+            <option value="ADMIN">Admin</option>
+            <option value="USER">User</option>
+          </select>
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+
+      </form>
+
+      <div id="message" [style.color]="messageColor">
+        {{ message }}
+      </div>
+
+      <div class="switch">
+        Already have an account? <a routerLink="/login">Login</a>
+      </div>
+
+    </div>
+
+  </div>
+</div>

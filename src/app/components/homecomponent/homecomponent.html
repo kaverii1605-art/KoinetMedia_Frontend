@@ -1,0 +1,558 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"> -->
+
+<div class="home-page">
+
+  <!-- Hero Section -->
+<section class="container-fluid hero-section-new">
+
+    <div class="pattern"></div>
+
+  <div class="container">
+    <div class="row align-items-center hero-new-wrapper">
+
+      <!-- Left Content -->
+      <div class="col-lg-5 text-center text-lg-start">
+        <p class="hero-kicker">WELCOME TO KOINET MEDIA</p>
+
+        <h3 class="hero-main-title">
+          Building B2B Growth Solutions That
+          <span>{{ currentWord }}</span>
+        </h3>
+
+        <div class="hero-line"></div>
+
+        <p class="hero-main-text">
+          We help businesses transform marketing efforts into powerful demand
+          generation systems with smart data, multi-channel outreach, and
+          customer-first strategies.
+        </p>
+
+        <a routerLink="/contact" class="hero-cta">
+          Get Started <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Right Circular Animation -->
+      <div class="col-lg-7">
+        <div class="orbit-area">
+
+          <div class="center-circle">
+            <i [class]="activeFeature.icon"></i>
+            <h2>{{ activeFeature.title }}</h2>
+            <p>{{ activeFeature.desc }}</p>
+          </div>
+
+          <div class="orbit-ring"></div>
+<!-- 
+          <div class="active-arrow" [ngClass]="'active-arrow-' + (activeIndex + 1)">
+  <i class="bi bi-arrow-right"></i>
+</div> -->
+
+          <div
+            class="orbit-card"
+            *ngFor="let feature of features; let i = index"
+            [ngClass]="'card-' + (i + 1)"
+            [class.active-orbit-card]="i === activeIndex"
+          >
+            <div class="orbit-icon">
+              <i [class]="feature.icon"></i>
+            </div>
+            <h4>{{ feature.title }}</h4>
+            <!-- <p>{{ feature.desc }}</p> -->
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose-section">
+  <div class="container">
+    <div class="row align-items-start g-4"> <!-- changed to align-items-start -->
+
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-6">
+        <h3 class="section-title">
+          Why Choose <span>Koinet Media?</span>
+        </h3>
+
+        <p class="section-desc">
+          We are an innovative demand generation agency, helping businesses improve
+          their sales pipelines with smart, data-driven solutions.
+        </p>
+
+        <!-- SCROLLING FEATURES -->
+        <div class="feature-marquee">
+          <div class="feature-track">
+
+            <div class="feature-box">
+              <div class="feature-icon bg-primary-custom">
+                <i class="bi bi-database"></i>
+              </div>
+              <div class="feature-text">Advanced Data Management Solutions</div>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon bg-success-custom">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <div class="feature-text">Cyber Security & Unified Communications</div>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon bg-warning-custom">
+                <i class="bi bi-rocket-takeoff"></i>
+              </div>
+              <div class="feature-text">Personalized Technology Recommendations</div>
+            </div>
+
+            <!-- Duplicate for smooth infinite loop -->
+            <div class="feature-box">
+              <div class="feature-icon bg-primary-custom">
+                <i class="bi bi-database"></i>
+              </div>
+              <div class="feature-text">Advanced Data Management Solutions</div>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon bg-success-custom">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <div class="feature-text">Cyber Security & Unified Communications</div>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon bg-warning-custom">
+                <i class="bi bi-rocket-takeoff"></i>
+              </div>
+              <div class="feature-text">Personalized Technology Recommendations</div>
+            </div>
+
+          </div>
+        </div>
+
+        <a routerLink="/overview" class="btn custom-primary-btn text-white mt-4">
+          Learn More
+        </a>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="col-lg-6 text-center">
+        <img src="assets/images/why-choose-us.jpg"
+             alt="Why Choose Us"
+             class="main-image img-fluid">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Services -->
+  <section class="services-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Our <span>Services</span></h2>
+      <p class="section-desc">Helping your business grow with expert digital solutions.</p>
+    </div>
+
+    <div class="row align-items-center g-4 mb-5">
+      <div class="col-lg-6 text-center">
+        <img src="assets/images/service1.png" alt="Service" class="img-fluid service-img">
+      </div>
+      <div class="col-lg-6">
+        <div class="service-box">
+          <h3>Why Do You Need Our Services?</h3>
+          <p>
+            The modern marketing landscape is crowded and competitive.
+            Traditional strategies often fall short, leaving businesses with
+            unqualified leads and poor ROI.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center g-4 mb-5">
+      <div class="col-lg-6 order-lg-2 text-center">
+        <img src="assets/images/service2.jpg" alt="Service" class="img-fluid service-img">
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="service-box">
+          <h3>Solution We Can Offer You</h3>
+          <p>
+            Our services are built around strong strategy, lead nurturing,
+            content syndication, and performance-focused execution.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center py-3">
+      <div class="col-lg-6 text-center">
+        <img src="assets/images/serviceoffer.jpg" alt="Services Illustration" class="img-fluid roundedshadow">
+      </div>
+      <div class="col-lg-6">
+        <h3 class="fw-bold text-primary">Our Service Offerings</h3>
+        <ul class="list-unstyled mt-4">
+          <li class="mb-4">
+            <h4 class="text-dark fw-bold d-flex align-items-center">
+              <i class="bi bi-cursor-fill text-primary me-2"></i> Content Syndication
+            </h4>
+            <p class="text-muted">
+              We ensure your content reaches the right audience at the right time. Our network spans multiple platforms, targeting IT decision-makers with precision.
+            </p>
+          </li>
+          <li class="mb-4">
+            <h4 class="text-dark fw-bold d-flex align-items-center">
+              <i class="bi bi-cursor-fill text-primary me-2"></i> Lead Nurturing & Qualification
+            </h4>
+            <p class="text-muted">
+              Our lead nurturing process is tailored to each prospect’s journey. We engage leads with personalized content to inform, interest, and convert them.
+            </p>
+          </li>
+          <li>
+            <h4 class="text-dark fw-bold d-flex align-items-center">
+              <i class="bi bi-cursor-fill text-primary me-2"></i> Multi-Channel Approach
+            </h4>
+            <p class="text-muted">
+              We use a <a href="/what_we_provide/multi-channel-lead.html" class="text-decoration-none text-dark fw-semibold">multi-channel strategy</a> including social media, email campaigns, and more to ensure maximum reach and engagement.
+            </p>
+          </li>
+        </ul>
+      </div>
+    
+    </div>
+    
+<div class="contact-btn-wrapper">
+  <h4>Get in touch now to explore our services!</h4>
+  <a routerLink="/contact" class="custom-primary-btn">Contact Us</a>
+</div>
+    
+  </div>
+</section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container text-center">
+      <h2 class="section-title">Our Clients <span>Love Us</span></h2>
+      <p class="section-desc">See what our satisfied clients have to say about us.</p>
+
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000"  data-bs-pause="hover"
+     data-bs-wrap="true">
+        <div class="carousel-inner">
+
+          <div class="carousel-item"
+               *ngFor="let item of testimonials; let i = index"
+               [class.active]="i === 0">
+            <div class="testimonial-box">
+              <p class="testimonial-text">"{{ item.text }}"</p>
+              <h5 class="testimonial-author">- {{ item.author }}</h5>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Partner -->
+  <section class="why-partner-section">
+    <div class="container text-center">
+      <h2 class="section-title">Why Partner With <span>Koinet Media?</span></h2>
+      <p class="section-desc partner-desc">
+        Work with Koinet Media and get more than just leads – get real conversions.
+        Our smart data-driven approach ensures every marketing dollar is well spent.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <i class="fas fa-chart-line icon"></i>
+          <h4>Higher Conversion Rates</h4>
+          <p>We deliver sales-ready leads that drive revenue.</p>
+        </div>
+
+        <div class="feature-item">
+          <i class="fas fa-sync-alt icon"></i>
+          <h4>Optimized Campaigns</h4>
+          <p>Our data-driven strategies improve your campaign performance.</p>
+        </div>
+
+        <div class="feature-item">
+          <i class="fas fa-hand-holding-usd icon"></i>
+          <h4>Better ROI</h4>
+          <p>Maximize returns for every dollar spent with us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Own Your Funnel Section -->
+    <section class="py-3 text-center position-relative" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">
+        <div class="container position-relative">
+            <h2 class="fw-bold animate__animated animate__fadeInUp text-uppercase text-responsive">
+                <span class="text-primary">MASTER YOUR FUNNEL</span> <span class="text-black">FOR MAXIMUM GROWTH</span>
+            </h2>
+            <p class="lead text-muted animate__animated animate__fadeInUp animate__delay-1s">
+                KoiNet Media demand strategists work with you using advanced tools to craft and optimize demand programs that deliver the audience, buyers, and account engagement to meet your goals.
+            </p>
+
+            <div class="row mt-4 g-4">
+                <!-- Data-Driven Demand Programs -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="floating-box bg-white text-center p-4 rounded-4 shadow-lg animate__animated animate__fadeInLeft hover-effect">
+                        <div class="icon-box bg-gradient-teal mb-3">
+            <i class="fa-solid fa-database fa-2x"></i>                        
+            </div>
+                        <h4 class="fw-bold text-dark">Data-Driven Demand Programs</h4>
+                        <p class="text-muted">We analyze real-time data to create precision-targeted campaigns.</p>
+                    </div>
+                </div>
+
+                <!-- Smart Engagement Strategies -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="floating-box bg-white text-center p-4 rounded-4 shadow-lg animate__animated animate__fadeInUp animate__delay-1s hover-effect">
+                        <div class="icon-box bg-gradient-blue mb-3">
+                            <i class="fas fa-bullhorn fa-3x text-white"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark">Smart Engagement Strategies</h4>
+                        <p class="text-muted">Advanced AI and automation for highly engaging interactions.</p>
+                    </div>
+                </div>
+
+                <!-- Performance Optimization Tools -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="floating-box bg-white text-center p-4 rounded-4 shadow-lg animate__animated animate__fadeInRight animate__delay-2s hover-effect">
+                        <div class="icon-box bg-gradient-purple mb-3">
+                            <i class="fas fa-tools fa-3x text-white"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark">Performance Optimization Tools</h4>
+                        <p class="text-muted">Use cutting-edge tools to track and refine every campaign.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="infographic-section">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="insights-heading">
+        <span>OUR</span> Infographics
+      </h2>
+
+      <p class="blog-subtitle">
+        Explore our latest visual insights and business strategies
+      </p>
+    </div>
+
+    <div class="infographic-slider">
+      <div class="infographic-track">
+
+        <!-- Main Loop -->
+        <div class="infographic-card" *ngFor="let info of infographics">
+
+          <div class="infographic-img-box">
+            <img
+              [src]="info.imageUrl || info.image || 'assets/images/default-blog.jpg'"
+              [alt]="info.title"
+            />
+          </div>
+
+          <div class="infographic-content">
+
+            <p class="infographic-date">
+              <i class="bi bi-calendar3"></i>
+              {{ info.date || info.createdAt | date:'mediumDate' }}
+            </p>
+
+            <h3>{{ info.title }}</h3>
+
+            <p class="infographic-desc">
+              {{ info.description || info.shortDescription || info.content }}
+            </p>
+
+            <a
+              [routerLink]="['/infographic-details', info.id]"
+              class="read-more">
+
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Duplicate Loop -->
+        <div class="infographic-card" *ngFor="let info of infographics">
+
+          <div class="infographic-img-box">
+            <img
+              [src]="info.imageUrl || info.image || 'assets/images/default-blog.jpg'"
+              [alt]="info.title"
+            />
+          </div>
+
+          <div class="infographic-content">
+
+            <p class="infographic-date">
+              <i class="bi bi-calendar3"></i>
+              {{ info.date || info.createdAt | date:'mediumDate' }}
+            </p>
+
+            <h3>{{ info.title }}</h3>
+
+            <p class="infographic-desc">
+              {{ info.description || info.shortDescription || info.content }}
+            </p>
+
+            <a
+              [routerLink]="['/infographic-details', info.id]"
+              class="read-more">
+
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a routerLink="/infographics" class="more-blog-btn">
+        More Infographics →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Core Pillars -->
+  <section class="pillars-section">
+    <div class="container text-center">
+      <h2 class="section-title">
+        <span>3 Core Pillars</span> of Multi Channel Growth
+      </h2>
+      <p class="section-desc">
+        To build a high-impact lead generation strategy, businesses must focus on:
+      </p>
+
+      <div class="pillars-container">
+        <div class="pillar-card">
+          <img src="assets/images/ser1.png" alt="Content Syndication" class="pillar-img1">
+          <h3 class="pillar-title">Content Syndication</h3>
+          <p>We distribute your content across multiple platforms to maximize reach.</p>
+        </div>
+
+        <div class="pillar-card">
+          <img src="assets/images/ser2.png" alt="Cross Platform Nurturing" class="pillar-img">
+          <h3 class="pillar-title">Cross-Platform Nurturing</h3>
+          <p>Our AI-driven approach keeps prospects engaged with dynamic experiences.</p>
+        </div>
+
+        <div class="pillar-card">
+          <img src="assets/images/ser3.png" alt="Data Compliance" class="pillar-img">
+          <h3 class="pillar-title">Data Compliance & Transparency</h3>
+          <p>We ensure ethical and GDPR-compliant lead generation processes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="blog-section">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="insights-heading">
+        <span>OUR</span> Blogs
+      </h2>
+      <p class="blog-subtitle">Latest insights and updates from Koinet Media</p>
+    </div>
+
+    <div class="blog-slider">
+      <div class="blog-track">
+
+        <div class="blog-card" *ngFor="let blog of blogs">
+          <div class="blog-img-box">
+            <img
+              [src]="blog.imageUrl || blog.image || 'assets/images/default-blog.jpg'"
+              [alt]="blog.title"
+            />
+          </div>
+
+          <div class="blog-content">
+            <p class="blog-date">
+              <i class="bi bi-calendar3"></i>
+              {{ blog.date || blog.createdAt | date:'mediumDate' }}
+            </p>
+
+            <h3>{{ blog.title }}</h3>
+
+            <p class="blog-desc">
+              {{ blog.description || blog.shortDescription || blog.content }}
+            </p>
+
+            <a [routerLink]="['/blog-details', blog.id]" class="read-more">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- duplicate for smooth infinite running -->
+        <div class="blog-card" *ngFor="let blog of blogs">
+          <div class="blog-img-box">
+            <img
+              [src]="blog.imageUrl || blog.image || 'assets/images/default-blog.jpg'"
+              [alt]="blog.title"
+            />
+          </div>
+
+          <div class="blog-content">
+            <p class="blog-date">
+              <i class="bi bi-calendar3"></i>
+              {{ blog.date || blog.createdAt | date:'mediumDate' }}
+            </p>
+
+            <h3>{{ blog.title }}</h3>
+
+            <p class="blog-desc">
+              {{ blog.description || blog.shortDescription || blog.content }}
+            </p>
+
+            <a [routerLink]="['/blog-details', blog.id]" class="read-more">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a routerLink="/blog" class="more-blog-btn">
+        More Blogs →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+</div>
+

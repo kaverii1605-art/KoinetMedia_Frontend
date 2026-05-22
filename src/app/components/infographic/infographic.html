@@ -1,0 +1,89 @@
+<div class="hero">
+  <h1 class="display-4 fw-bold text-uppercase tracking-widest">
+    Stay Ahead with the Latest Infographics
+  </h1>
+
+  <p class="lead">
+    Explore the latest trends, news, and expert visual insights
+  </p>
+</div>
+
+<div class="container mt-5 text-center">
+
+  <h2 class="mb-4">Latest Infographics</h2>
+
+  <div class="search-bar mb-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search infographics by name"
+      [(ngModel)]="searchText"
+      (input)="searchInfographics()"
+    >
+  </div>
+
+  <div class="row">
+
+    <div
+      class="col-md-4 mb-4"
+      *ngFor="let info of filteredInfo | slice:0:visibleCount"
+    >
+
+      <div class="card h-100 shadow-sm">
+
+        <img
+          [src]="info.imageUrl || info.image || 'assets/images/default-blog.jpg'"
+          class="card-img-top"
+          alt="infographic image"
+          style="height:220px; object-fit:cover;"
+        >
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+            {{ info.title }}
+          </h5>
+
+          <p class="card-text">
+            {{ info.content | slice:0:120 }}...
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <button
+    *ngIf="visibleCount < filteredInfo.length"
+    class="btn btn-primary mt-4"
+    (click)="loadMore()"
+  >
+    View More
+  </button>
+
+</div>
+
+<div class="container mt-5">
+
+  <div class="newsletter">
+
+    <h2>Subscribe to Our Newsletter</h2>
+
+    <p>Get the latest infographics straight to your inbox</p>
+
+    <input
+      type="email"
+      class="form-control mb-3"
+      placeholder="Enter your email"
+    >
+
+    <button class="btn btn-primary fw-bold">
+      Subscribe
+    </button>
+
+  </div>
+
+</div>

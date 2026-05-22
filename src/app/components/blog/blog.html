@@ -1,0 +1,103 @@
+<div class="hero">
+    <h1 class="display-4 fw-bold text-uppercase tracking-widest">
+        Stay Ahead with the Latest Blog
+    </h1>
+
+    <p class="lead">
+        Explore the latest trends, news, and expert opinions
+    </p>
+</div>
+
+<!-- Blog Section -->
+<div class="container mt-5 text-center">
+
+    <h2 class="mb-4">Latest Blogs</h2>
+
+    <!-- Search -->
+    <div class="search-bar mb-4">
+
+        <input
+            type="text"
+            class="form-control"
+            placeholder="Search blogs by name or category"
+            [(ngModel)]="searchText"
+            (input)="searchBlogs()"
+        >
+
+    </div>
+
+    <!-- Blog Cards -->
+    <div class="row">
+
+        <div
+            class="col-md-4 mb-4"
+            *ngFor="let blog of filteredBlogs | slice:0:visibleCount"
+        >
+
+            <div class="card h-100 shadow-sm">
+
+                <img
+                    [src]="blog.imageUrl"
+                    class="card-img-top"
+                    alt="blog image"
+                    style="height:220px; object-fit:cover;"
+                >
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        {{ blog.title }}
+                    </h5>
+
+                    <span class="badge bg-primary mb-2">
+                        {{ blog.category }}
+                    </span>
+
+                    <p class="card-text">
+                        {{ blog.content | slice:0:120 }}...
+                    </p>
+
+                    <a
+  class="btn btn-outline-primary mt-2"
+  [routerLink]="['/blog-details', blog.id]"
+>
+  Read More
+</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View More -->
+    <button
+        *ngIf="visibleCount < filteredBlogs.length"
+        class="btn btn-primary mt-4"
+        (click)="loadMore()"
+    >
+        View More
+    </button>
+
+</div>
+
+<!-- Newsletter -->
+<div class="container mt-5">
+
+    <div class="newsletter">
+
+        <h2>Subscribe to Our Newsletter</h2>
+
+        <p>Get the latest blogs straight to your inbox</p>
+
+        <input
+            type="email"
+            class="form-control mb-3"
+            placeholder="Enter your email"
+        >
+
+        <button class="btn btn-primary fw-bold">
+            Subscribe
+        </button>
+
+    </div>
+
+</div>
