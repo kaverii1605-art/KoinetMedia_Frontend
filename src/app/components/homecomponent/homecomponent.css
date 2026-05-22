@@ -72,6 +72,7 @@ body {
 
 .home-page {
   overflow-x: hidden;
+  padding-top: 50px;
 }
 
 section {
@@ -1696,40 +1697,66 @@ img.roundedshadow:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: rotateRing 18s linear infinite;
+  animation: none !important;
 }
-
+/* 
 .orbit-ring::before {
-  content: "➤";   
+  content: "➤";
   position: absolute;
-  top: 80px;
-  left: 170px;
-
   width: 30px;
   height: 30px;
   background: #fff;
   color: #0d6efd;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
   font-size: 16px;
-  
-
   box-shadow: 0 0 0 4px rgba(13,110,253,0.18);
+  transition: all 0.5s ease;
+  z-index: 20;
+} */
+
+/* TOP */
+/* .orbit-area.active-1 .orbit-ring::before {
+  transform: translate(-50%, -50%)
+             rotate(-90deg)
+             translateX(210px)
+             rotate(90deg);
 }
 
-.orbit-ring::before {
-  top: 40px;
-  left: 80px;
+/* RIGHT */
+.orbit-area.active-2 .orbit-ring::before {
+  transform: translate(-50%, -50%)
+             rotate(0deg)
+             translateX(210px)
+             rotate(0deg);
 }
 
-.orbit-ring::after {
-  bottom: 55px;
-  right: 75px;
+/* BOTTOM RIGHT */
+.orbit-area.active-3 .orbit-ring::before {
+  transform: translate(-50%, -50%)
+             rotate(45deg)
+             translateX(210px)
+             rotate(-45deg);
 }
+
+/* BOTTOM LEFT */
+.orbit-area.active-4 .orbit-ring::before {
+  transform: translate(-50%, -50%)
+             rotate(135deg)
+             translateX(210px)
+             rotate(-135deg);
+}
+
+/* LEFT */
+.orbit-area.active-5 .orbit-ring::before {
+  transform: translate(-50%, -50%)
+             rotate(180deg)
+             translateX(210px)
+             rotate(-180deg);
+} */
+
 
 @keyframes wordFade {
   from {
@@ -2570,4 +2597,406 @@ img.roundedshadow:hover {
   }
 }
   
+.floating-arrow {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 20;
+  box-shadow: 0 0 0 6px rgba(13, 110, 253, 0.15);
+  transition: all 0.5s ease;
+}
 
+.arrow-1 {
+  top: 130px;
+  left: 350px;
+  transform: rotate(-90deg);
+}
+
+.arrow-2 {
+  top: 255px;
+  right: 115px;
+  transform: rotate(0deg);
+}
+
+.arrow-3 {
+  bottom: 120px;
+  right: 190px;
+  transform: rotate(50deg);
+}
+
+.arrow-4 {
+  bottom: 120px;
+  left: 190px;
+  transform: rotate(130deg);
+}
+
+.arrow-5 {
+  top: 255px;
+  left: 115px;
+  transform: rotate(180deg);
+}
+/* ================================
+   FINAL HOME PAGE RESPONSIVE FIX
+================================ */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .hero-section-new {
+    padding: 70px 0 50px !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-new-wrapper {
+    min-height: auto;
+    text-align: center;
+  }
+
+  .hero-main-title {
+    font-size: 38px;
+  }
+
+  .hero-main-text {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-line {
+    margin: 20px auto !important;
+  }
+
+  .orbit-area {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+  }
+
+  .center-circle {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto 25px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .orbit-ring {
+    display: none;
+  }
+
+  .orbit-card {
+    position: relative !important;
+    inset: auto !important;
+    max-width: 100%;
+    margin: 14px auto;
+    text-align: center;
+  }
+
+  .orbit-icon {
+    margin: 0 auto 10px;
+  }
+
+  .features-grid,
+  .pillars-container {
+    grid-template-columns: 1fr;
+  }
+
+  .services-section .row,
+  .why-choose-section .row {
+    text-align: center;
+  }
+
+  .main-image,
+  .service-img,
+  img.roundedshadow {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  section {
+    padding: 55px 0;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-main-title {
+    font-size: 30px;
+    line-height: 1.25;
+  }
+
+  .hero-kicker {
+    font-size: 13px;
+  }
+
+  .hero-main-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-cta,
+  .custom-primary-btn,
+  .contact-btn-wrapper a {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+  }
+
+  .center-circle {
+    width: 220px;
+    height: 220px;
+    padding: 22px;
+  }
+
+  .center-circle i {
+    font-size: 36px;
+  }
+
+  .center-circle h2 {
+    font-size: 20px;
+  }
+
+  .center-circle p {
+    font-size: 12px;
+  }
+
+  .orbit-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    padding: 14px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .orbit-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .orbit-card h4 {
+    font-size: 15px;
+    margin: 0;
+    white-space: normal;
+  }
+
+  .section-title,
+  .insights-heading,
+  .text-responsive {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+
+  .section-desc,
+  .blog-subtitle,
+  .lead {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .feature-box {
+    min-width: 260px;
+    flex-direction: row;
+  }
+
+  .service-box,
+  .feature-item,
+  .floating-box,
+  .pillar-card {
+    padding: 24px 18px !important;
+  }
+
+  .service-box h3,
+  .services-section .fw-bold.text-primary {
+    font-size: 22px;
+  }
+
+  .blog-card,
+  .infographic-card {
+    width: 285px;
+    min-width: 285px;
+  }
+
+  .blog-img-box,
+  .infographic-img-box {
+    height: 190px;
+  }
+
+  .blog-content,
+  .infographic-content {
+    padding: 18px;
+  }
+
+  .blog-content h3,
+  .infographic-content h3 {
+    font-size: 18px;
+  }
+
+  .pillars-container {
+    gap: 20px;
+  }
+
+  .pillar-card {
+    min-height: auto;
+  }
+
+  .pillar-img,
+  .pillar-img1 {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 18px;
+  }
+
+  .testimonial-box {
+    padding: 28px 18px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+
+  .contact-btn-wrapper {
+    padding: 30px 18px;
+  }
+
+  .contact-btn-wrapper h4 {
+    font-size: 17px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero-main-title {
+    font-size: 27px;
+  }
+
+  .center-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .blog-card,
+  .infographic-card {
+    width: 260px;
+    min-width: 260px;
+  }
+
+  .feature-box {
+    min-width: 240px;
+  }
+
+  .more-blog-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+/* Keep hero orbit same on mobile */
+@media (max-width: 991px) {
+  .orbit-area {
+    width: 360px !important;
+    height: 360px !important;
+    position: relative !important;
+    margin: 35px auto 0 !important;
+    display: block !important;
+    transform: scale(0.95);
+  }
+
+  .center-circle {
+    position: absolute !important;
+    width: 150px !important;
+    height: 150px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 18px !important;
+  }
+
+  .center-circle i {
+    font-size: 28px !important;
+  }
+
+  .center-circle h2 {
+    font-size: 16px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .center-circle p {
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+  }
+
+  .orbit-ring {
+    display: block !important;
+    width: 260px !important;
+    height: 260px !important;
+  }
+
+  .orbit-card {
+    position: absolute !important;
+    display: block !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 90px !important;
+    text-align: center !important;
+  }
+
+  .orbit-icon {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 22px !important;
+    margin: 0 auto 8px !important;
+  }
+
+  .orbit-card h4 {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+  }
+
+  .card-1 {
+    top: 0 !important;
+    left: 135px !important;
+  }
+
+  .card-2 {
+    top: 120px !important;
+    right: 0 !important;
+  }
+
+  .card-3 {
+    bottom: 10px !important;
+    right: 55px !important;
+  }
+
+  .card-4 {
+    bottom: 10px !important;
+    left: 45px !important;
+  }
+
+  .card-5 {
+    top: 120px !important;
+    left: 0 !important;
+  }h
+}

@@ -37,15 +37,15 @@
 
       <!-- Right Circular Animation -->
       <div class="col-lg-7">
-        <div class="orbit-area">
+       <div class="orbit-area" [ngClass]="'active-' + (activeIndex + 1)">
 
-          <div class="center-circle">
-            <i [class]="activeFeature.icon"></i>
-            <h2>{{ activeFeature.title }}</h2>
-            <p>{{ activeFeature.desc }}</p>
-          </div>
+  <div class="center-circle">
+    <i [class]="activeFeature.icon"></i>
+    <h2>{{ activeFeature.title }}</h2>
+    <p>{{ activeFeature.desc }}</p>
+  </div>
 
-          <div class="orbit-ring"></div>
+  <div class="orbit-ring"></div>
 <!-- 
           <div class="active-arrow" [ngClass]="'active-arrow-' + (activeIndex + 1)">
   <i class="bi bi-arrow-right"></i>
