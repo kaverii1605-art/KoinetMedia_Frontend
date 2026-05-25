@@ -57,8 +57,8 @@ const routes: Routes = [
   {path:'articles', component:Article},
   {path:'privacy-policy', component:PrivacyPolicy},
   {path:'casestudies',component:Casestudies},
-  {path:'blog-details',component:BlogDetails}
-  
+  {path:'blog-details',component:BlogDetails},
+  {path:'casestudies',component:Casestudies}
 ];
 
 @NgModule({

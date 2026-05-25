@@ -1755,7 +1755,7 @@ img.roundedshadow:hover {
              rotate(180deg)
              translateX(210px)
              rotate(-180deg);
-} */
+} 
 
 
 @keyframes wordFade {
@@ -2998,5 +2998,5 @@ img.roundedshadow:hover {
   .card-5 {
     top: 120px !important;
     left: 0 !important;
-  }h
+  }
 }
