@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
   blogs: Blog[] = [];
   filteredBlogs: Blog[] = [];
 
-  visibleCount: number = 6;
+  visibleCount: number = 7;
   searchText: string = '';
 
   constructor(private blogService: Blogservice) {}

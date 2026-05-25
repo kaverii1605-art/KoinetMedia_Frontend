@@ -9,64 +9,84 @@
 </div>
 
 <!-- Blog Section -->
-<div class="container mt-5 text-center">
+<!-- Blog Section -->
+<div class="blog-page container mt-5">
 
-    <h2 class="mb-4">Latest Blogs</h2>
+  <div class="blog-top text-center">
+    <span class="blog-kicker">Koinet Insights</span>
+    <h2 class="blog-heading">Latest Blogs</h2>
+    <p class="blog-desc">Read fresh insights, trends, and expert opinions.</p>
+  </div>
 
-    <!-- Search -->
-    <div class="search-bar mb-4">
+  <!-- Search -->
+  <div class="search-bar">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search blogs by name or category"
+      [(ngModel)]="searchText"
+      (input)="searchBlogs()"
+    >
+  </div>
 
-        <input
-            type="text"
-            class="form-control"
-            placeholder="Search blogs by name or category"
-            [(ngModel)]="searchText"
-            (input)="searchBlogs()"
-        >
-
+  <!-- Featured Blog -->
+  <div class="featured-blog" *ngIf="filteredBlogs.length > 0">
+    <div class="featured-img">
+      <img [src]="filteredBlogs[0].imageUrl" alt="featured blog">
     </div>
 
-    <!-- Blog Cards -->
-    <div class="row">
+    <div class="featured-content">
+      <span class="blog-badge">{{ filteredBlogs[0].category }}</span>
 
-        <div
-            class="col-md-4 mb-4"
-            *ngFor="let blog of filteredBlogs | slice:0:visibleCount"
-        >
+      <h3>{{ filteredBlogs[0].title }}</h3>
 
-            <div class="card h-100 shadow-sm">
+      <p>
+        {{ filteredBlogs[0].content | slice:0:220 }}...
+      </p>
 
-                <img
-                    [src]="blog.imageUrl"
-                    class="card-img-top"
-                    alt="blog image"
-                    style="height:220px; object-fit:cover;"
-                >
-
-                <div class="card-body">
-
-                    <h5 class="card-title">
-                        {{ blog.title }}
-                    </h5>
-
-                    <span class="badge bg-primary mb-2">
-                        {{ blog.category }}
-                    </span>
-
-                    <p class="card-text">
-                        {{ blog.content | slice:0:120 }}...
-                    </p>
-
-                    <a
-  class="btn btn-outline-primary mt-2"
-  [routerLink]="['/blog-details', blog.id]"
->
-  Read More
-</a>
-                </div>
-            </div>
-        </div>
+      <a class="read-btn" [routerLink]="['/blog-details', filteredBlogs[0].id]">
+        Read Featured Blog →
+      </a>
     </div>
+  </div>
+
+  <!-- Blog Cards -->
+  <div class="blog-grid">
+    <div
+      class="blog-card"
+      *ngFor="let blog of filteredBlogs.slice(1, visibleCount); let i = index"
+      [style.animationDelay]="(i * 0.08) + 's'"
+    >
+
+      <div class="blog-img">
+        <img [src]="blog.imageUrl" alt="blog image">
+      </div>
+
+      <div class="blog-content">
+        <span class="blog-badge">{{ blog.category }}</span>
+
+        <h5>{{ blog.title }}</h5>
+
+        <p>{{ blog.content | slice:0:110 }}...</p>
+
+        <a class="read-more" [routerLink]="['/blog-details', blog.id]">
+          Read More →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- View More -->
+  <div class="text-center">
+    <button
+      *ngIf="visibleCount < filteredBlogs.length"
+      class="load-more-btn"
+      (click)="loadMore()"
+    >
+      View More Blogs
+    </button>
+  </div>
+
 
     <!-- View More -->
     <button
@@ -78,6 +98,7 @@
     </button>
 
 </div>
+
 
 <!-- Newsletter -->
 <div class="container mt-5">

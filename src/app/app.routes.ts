@@ -23,8 +23,11 @@ import { BlogComponent } from './components/blog/blog';
 import { Addinfographics } from './components/addinfographics/addinfographics';
 import { Article } from './components/article/article';
 import { PrivacyPolicy } from './components/privacy-policy/privacy-policy';
-import { Casestudies } from './components/casestudies/casestudies';
 import { BlogDetails } from './components/blog-details/blog-details';
+import { Casetudies } from './components/casetudies/casetudies';
+import { Gdpr } from './components/gdpr/gdpr';
+import { Termsconditions } from './components/termsconditions/termsconditions';
+import { Mediakit } from './components/mediakit/mediakit';
 
 
 export const routes: Routes = [
@@ -52,9 +55,12 @@ export const routes: Routes = [
   {path:'addinfographics',component:Addinfographics},
   {path:'articles', component:Article},
   {path:'privacy-policy', component:PrivacyPolicy},
-  {path:'casestudies',component:Casestudies},
   {path:'blog-details',component:BlogDetails},
-  {path:'casestudies',component:Casestudies}
+  {path:'casestudies',component:Casetudies},
+    {path:'gdpr',component:Gdpr},
+      {path:'termsconditions',component:Termsconditions},
+    {path:'mediakit',component:Mediakit}
+  
   
 
 ];

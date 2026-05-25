@@ -3,17 +3,20 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 declare var bootstrap: any;
 
+
 @Component({
-  selector: 'app-casetudies',
+  selector: 'app-mediakit',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './casetudies.html',
-  styleUrl: './casetudies.css',
+  templateUrl: './mediakit.html',
+  styleUrl: './mediakit.css',
 })
-export class Casetudies {
+export class Mediakit {
 
+  
   email: string = '';
 
   constructor(private http: HttpClient, private router: Router) {}
