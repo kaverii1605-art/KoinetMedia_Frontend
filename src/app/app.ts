@@ -6,6 +6,7 @@ import { filter } from 'rxjs';
 import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -25,17 +26,30 @@ export class App {
 
   showLayout = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private http: HttpClient) {
 
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
+  // Wake backend
+  this.http.get(
+    'https://koinetmedia-backend-61w7.onrender.com/api/health',
+    { responseType: 'text' }
+  ).subscribe({
+    next: () => console.log('Backend Awake'),
+    error: err => console.log('Backend Wake Failed', err)
+  });
 
-        const currentUrl = event.urlAfterRedirects;
+  // Layout hide/show
+  this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: any) => {
 
-        // Hide only on login and register pages
-        this.showLayout = currentUrl !== '/login' && currentUrl !== '/register' && currentUrl !== '/addblog' 
-        && currentUrl !== '/addinfographics' && currentUrl !== '/addarticle';
-      });
-  }
+      const currentUrl = event.urlAfterRedirects;
+
+      this.showLayout =
+        currentUrl !== '/login' &&
+        currentUrl !== '/register' &&
+        currentUrl !== '/addblog' &&
+        currentUrl !== '/addinfographics' &&
+        currentUrl !== '/addarticle';
+    });
+}
 }
