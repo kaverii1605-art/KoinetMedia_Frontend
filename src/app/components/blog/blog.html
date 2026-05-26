@@ -44,9 +44,13 @@
         {{ filteredBlogs[0].content | slice:0:220 }}...
       </p>
 
-      <a class="read-btn" [routerLink]="['/blog-details', filteredBlogs[0].id]">
-        Read Featured Blog →
-      </a>
+     <a
+  *ngIf="filteredBlogs.length > 0"
+  class="read-btn"
+  [routerLink]="['/blogdetails', filteredBlogs[0].id]"
+>
+  Read Featured Blog →
+</a>
     </div>
   </div>
 
@@ -69,7 +73,7 @@
 
         <p>{{ blog.content | slice:0:110 }}...</p>
 
-        <a class="read-more" [routerLink]="['/blog-details', blog.id]">
+        <a class="read-more" [routerLink]="['/blogdetails', blog.id]">
           Read More →
         </a>
       </div>

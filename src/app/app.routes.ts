@@ -55,7 +55,7 @@ export const routes: Routes = [
   {path:'addinfographics',component:Addinfographics},
   {path:'articles', component:Article},
   {path:'privacy-policy', component:PrivacyPolicy},
-  {path:'blog-details',component:BlogDetails},
+  {path:'blogdetails/:id',component:BlogDetails},
   {path:'casestudies',component:Casetudies},
     {path:'gdpr',component:Gdpr},
       {path:'termsconditions',component:Termsconditions},

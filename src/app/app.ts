@@ -37,19 +37,26 @@ export class App {
     error: err => console.log('Backend Wake Failed', err)
   });
 
+  
+
   // Layout hide/show
-  this.router.events
-    .pipe(filter(event => event instanceof NavigationEnd))
-    .subscribe((event: any) => {
+this.router.events
+  .pipe(filter(event => event instanceof NavigationEnd))
+  .subscribe((event: any) => {
 
-      const currentUrl = event.urlAfterRedirects;
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'auto'
+      });
+    }, 300);
 
-      this.showLayout =
-        currentUrl !== '/login' &&
-        currentUrl !== '/register' &&
-        currentUrl !== '/addblog' &&
-        currentUrl !== '/addinfographics' &&
-        currentUrl !== '/addarticle';
-    });
-}
-}
+    const currentUrl = event.urlAfterRedirects;
+
+    this.showLayout =
+      currentUrl !== '/login' &&
+      currentUrl !== '/register' &&
+      currentUrl !== '/addblog' &&
+      currentUrl !== '/addinfographics' &&
+      currentUrl !== '/addarticle';
+  })}}

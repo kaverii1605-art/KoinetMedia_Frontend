@@ -6,6 +6,7 @@ import { routes } from './app/app.routes';
 
 bootstrapApplication(App, {
   providers: [
-    provideRouter(routes)
+    provideRouter(routes),
+    
   ]
 }).catch(err => console.error(err));
