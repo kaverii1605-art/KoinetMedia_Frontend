@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface Blog {
   id?: number;
+  _id?: string;
   title: string;
   category: string;
   imageUrl: string;

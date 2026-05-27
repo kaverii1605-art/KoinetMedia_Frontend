@@ -30,29 +30,30 @@
   </div>
 
   <!-- Featured Blog -->
-  <div class="featured-blog" *ngIf="filteredBlogs.length > 0">
-    <div class="featured-img">
-      <img [src]="filteredBlogs[0].imageUrl" alt="featured blog">
+ <div class="blog-grid">
+  <div
+    class="blog-card"
+    *ngFor="let blog of filteredBlogs | slice:0:visibleCount; let i = index"
+    [style.animationDelay]="(i * 0.08) + 's'"
+  >
+
+    <div class="blog-img">
+      <img [src]="blog.imageUrl" alt="blog image">
     </div>
 
-    <div class="featured-content">
-      <span class="blog-badge">{{ filteredBlogs[0].category }}</span>
+    <div class="blog-content">
+      <span class="blog-badge">{{ blog.category }}</span>
 
-      <h3>{{ filteredBlogs[0].title }}</h3>
+      <h5>{{ blog.title }}</h5>
 
-      <p>
-        {{ filteredBlogs[0].content | slice:0:220 }}...
-      </p>
+      <p>{{ blog.content | slice:0:110 }}...</p>
 
-     <a
-  *ngIf="filteredBlogs.length > 0"
-  class="read-btn"
-  [routerLink]="['/blogdetails', filteredBlogs[0].id]"
->
-  Read Featured Blog →
-</a>
+      <a class="read-more" [routerLink]="['/blogdetails', blog.id || blog._id]">
+        Read More →
+      </a>
     </div>
   </div>
+</div>
 
   <!-- Blog Cards -->
   <div class="blog-grid">
@@ -92,14 +93,7 @@
   </div>
 
 
-    <!-- View More -->
-    <button
-        *ngIf="visibleCount < filteredBlogs.length"
-        class="btn btn-primary mt-4"
-        (click)="loadMore()"
-    >
-        View More
-    </button>
+  
 
 </div>
 

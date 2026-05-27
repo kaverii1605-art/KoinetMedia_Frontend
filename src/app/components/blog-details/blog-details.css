@@ -216,3 +216,25 @@
     line-height: 1.9;
   }
 }
+
+.blog-navigation {
+  max-width: 920px;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-btn {
+  border: none;
+  background: linear-gradient(135deg, #082f6b, #0f766e);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: 700;
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

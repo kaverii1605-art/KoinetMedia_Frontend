@@ -12,72 +12,72 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BlogDetails {
 
 
-  blog: any = {};
-
-    currentIndex = 0;
+  blog: any = null;
   blogs: any[] = [];
+  currentIndex = -1;
 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  constructor(private route: ActivatedRoute,private router: Router) {}
   ngOnInit(): void {
-  const id = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
 
-  fetch('https://koinetmedia-backend-61w7.onrender.com/api/getblogs')
-    .then(res => res.json())
-    .then(data => {
-      this.blogs = data.content || data;
+      console.log('ROUTE ID:', id);
 
-      this.currentIndex = this.blogs.findIndex(
-        (b: any) => b.id == id
-      );
+      if (id) {
+        this.blog = null;
+        this.loadBlog(id);
+        this.loadAllBlogs(id);
+      }
+    });
+  }
 
-      this.loadBlog(id);
-    })
-    .catch(err => console.log(err));
-}
+  loadBlog(id: string) {
+    fetch(`https://koinetmedia-backend-61w7.onrender.com/api/getblog/${id}`)
+      .then(res => {
+        console.log('DETAIL API STATUS:', res.status);
+        return res.json();
+      })
+      .then(data => {
+        console.log('DETAIL API DATA:', data);
+        this.blog = data;
+      })
+      .catch(err => {
+        console.log('DETAIL API ERROR:', err);
+      });
+  }
 
- prevBlog() {
+  loadAllBlogs(id: string) {
+    fetch('https://koinetmedia-backend-61w7.onrender.com/api/getblogs')
+      .then(res => res.json())
+      .then(data => {
+        this.blogs = data.content || data;
 
+        this.currentIndex = this.blogs.findIndex((b: any) =>
+          String(b.id || b._id) === String(id)
+        );
+
+        console.log('ALL BLOGS:', this.blogs);
+        console.log('CURRENT INDEX:', this.currentIndex);
+      })
+      .catch(err => console.log('ALL BLOGS ERROR:', err));
+  }
+
+  prevBlog() {
     if (this.currentIndex > 0) {
-
-      this.currentIndex--;
-
-      const prevId = this.blogs[this.currentIndex].id;
-
-      this.router.navigate(['/blogdetails', prevId]);
-
-      this.loadBlog(prevId);
-
+      const prevBlog = this.blogs[this.currentIndex - 1];
+      this.router.navigate(['/blogdetails', prevBlog.id || prevBlog._id]);
     }
-
   }
 
   nextBlog() {
-
     if (this.currentIndex < this.blogs.length - 1) {
-
-      this.currentIndex++;
-
-      const nextId = this.blogs[this.currentIndex].id;
-
-      this.router.navigate(['/blogdetails', nextId]);
-
-      this.loadBlog(nextId);
-
+      const nextBlog = this.blogs[this.currentIndex + 1];
+      this.router.navigate(['/blogdetails', nextBlog.id || nextBlog._id]);
     }
-
-  }
-
-   loadBlog(id: any) {
-
-    fetch(`https://koinetmedia-backend-61w7.onrender.com/api/getblog/${id}`)
-      .then(res => res.json())
-      .then(data => {
-
-        this.blog = data;
-
-      });
-
   }
 
 }

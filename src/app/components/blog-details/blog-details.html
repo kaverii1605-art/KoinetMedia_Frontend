@@ -1,71 +1,60 @@
 <div class="blog-details-page">
 
-  <!-- Hero -->
-  <section class="blog-hero">
+  <div *ngIf="!blog?.title" class="text-center py-5">
+    <h3>Loading blog...</h3>
+  </div>
 
-    <div class="container text-center">
+  <ng-container *ngIf="blog?.title">
 
-    
-      <h3 class="blog-title">
-        {{ blog.title }}
-      </h3>
+    <section class="blog-hero">
+      <div class="container text-center">
 
-      <p class="blog-date">
-        <i class="bi bi-calendar3"></i>
-        {{ blog.createdAt || blog.date | date:'mediumDate' }}
-      </p>
+        <h3 class="blog-title">{{ blog.title }}</h3>
 
-        <span class="blog-category">
-        {{ blog.category }}
-      </span>
+        <p class="blog-date">
+          <i class="bi bi-calendar3"></i>
+          {{ blog.createdAt || blog.date | date:'mediumDate' }}
+        </p>
 
-    </div>
+        <span class="blog-category">{{ blog.category }}</span>
 
-  </section>
+      </div>
+    </section>
 
-  <!-- Content -->
-  <section class="container py-5">
+    <section class="container py-5">
 
-    <div class="blog-image-wrapper">
-
-      <img
-        [src]="blog.imageUrl || blog.image"
-        [alt]="blog.title"
-        class="blog-main-image"
-      >
-
-    </div>
-
-    <div class="blog-content-box">
-
-      <p class="blog-description">
-        {{ blog.description || blog.shortDescription }}
-      </p>
-
-      <div class="blog-content">
-        {{ blog.content }}
+      <div class="blog-image-wrapper">
+        <img
+          [src]="blog.imageUrl || blog.image || 'assets/images/default-blog.jpg'"
+          [alt]="blog.title"
+          class="blog-main-image"
+        >
       </div>
 
-    </div>
+      <div class="blog-content-box">
 
-  </section>
+        <p class="blog-description">
+          {{ blog.description || blog.shortDescription || '' }}
+        </p>
 
-  <div class="blog-navigation">
+        <div class="blog-content">
+          {{ blog.content }}
+        </div>
 
-  <button
-    class="nav-btn"
-    (click)="prevBlog()"
-    [disabled]="currentIndex === 0">
-    ← Previous Blog
-  </button>
+      </div>
 
-  <button
-    class="nav-btn"
-    (click)="nextBlog()"
-    [disabled]="currentIndex === blogs.length - 1">
-    Next Blog →
-  </button>
+      <div class="blog-navigation">
+        <button class="nav-btn" (click)="prevBlog()" [disabled]="currentIndex <= 0">
+          ← Previous Blog
+        </button>
 
-</div>
+        <button class="nav-btn" (click)="nextBlog()" [disabled]="currentIndex >= blogs.length - 1">
+          Next Blog →
+        </button>
+      </div>
+
+    </section>
+
+  </ng-container>
 
 </div>

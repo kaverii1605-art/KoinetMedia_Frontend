@@ -251,12 +251,12 @@ textarea.form-control {
    SUBMIT BUTTON
 ========================= */
 .btn-submit {
-  width: 100%;
+  width: 50%;
   height: 58px;
   border: none;
   border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, var(--km-blue), var(--km-cyan));
-  color: #ffffff;
+  background: #30528d;
+  color: white;
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.6px;
@@ -265,13 +265,16 @@ textarea.form-control {
   position: relative;
   overflow: hidden;
   transition: var(--transition);
+  display: block;;
+  margin: 20px auto;
+  border-radius:20px;
 }
 
 .btn-submit::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.48), transparent);
+  /* background: linear-gradient(120deg, transparent, rgba(255,255,255,0.48), transparent); */
   transform: translateX(-120%);
   transition: transform 0.75s ease;
 }
@@ -283,7 +286,7 @@ textarea.form-control {
 .btn-submit:hover {
   transform: translateY(-4px);
   background: linear-gradient(135deg, var(--km-blue-dark), var(--km-blue));
-  color: #ffffff;
+  /* color: #ffffff; */
 }
 
 /* =========================

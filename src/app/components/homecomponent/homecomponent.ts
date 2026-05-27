@@ -288,14 +288,14 @@ ngOnInit(): void {
     this.activeFeature = this.features[this.activeIndex];
 
     this.cdr.detectChanges();
-  }, 2000);
+  }, 2500);
 
    this.fetchBlogs();
    this.fetchInfographics();
 }
 
-fetchInfographics() {
-  fetch('https://koinetmedia-backend-61w7.onrender.com/api/getinfo')
+fetchInfographics(page: number = 0) {
+  fetch(`https://koinetmedia-backend-61w7.onrender.com/api/getinfo?page=${page}`)
     .then(res => res.json())
     .then(data => {
       this.infographics = data.content || data;

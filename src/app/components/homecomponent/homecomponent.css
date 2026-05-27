@@ -475,6 +475,55 @@ font-size: 2.8rem; /* reduced from large */
   transform: translateY(-6px) scale(1.01);
 }
 
+.infographic-track,
+.blog-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: slideRun 25s linear infinite;
+}
+
+.blog-track{
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: slideBlog 60s linear infinite;
+}
+
+.infographic-track{
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: slideInfo 30s linear infinite;
+}
+
+@keyframes slideBlog {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideInfo {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideRun {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* =========================================
    SERVICES SECTION
 ========================================= */
@@ -2374,16 +2423,7 @@ img.roundedshadow:hover {
   padding: 20px 0;
 }
 
-.blog-track {
-  display: flex;
-  gap: 28px;
-  width: max-content;
-  animation: blogScroll 30s linear infinite;
-}
 
-.blog-slider:hover .blog-track {
-  animation-play-state: paused;
-}
 
 .blog-card {
   width: 360px;
@@ -2505,16 +2545,6 @@ img.roundedshadow:hover {
   padding: 20px 0;
 }
 
-.infographic-track {
-  display: flex;
-  gap: 28px;
-  width: max-content;
-  animation: infographicScroll 30s linear infinite;
-}
-
-.infographic-slider:hover .infographic-track {
-  animation-play-state: paused;
-}
 
 .infographic-card {
   width: 360px;
