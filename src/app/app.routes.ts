@@ -28,6 +28,7 @@ import { Casetudies } from './components/casetudies/casetudies';
 import { Gdpr } from './components/gdpr/gdpr';
 import { Termsconditions } from './components/termsconditions/termsconditions';
 import { Mediakit } from './components/mediakit/mediakit';
+import { InfoDetails } from './components/info-details/info-details';
 
 
 export const routes: Routes = [
@@ -55,6 +56,7 @@ export const routes: Routes = [
   {path:'addinfographics',component:Addinfographics},
   {path:'articles', component:Article},
   {path:'privacy-policy', component:PrivacyPolicy},
+  {path:'infodetails/:id',component:InfoDetails},
   {path:'blogdetails/:id',component:BlogDetails},
   {path:'casestudies',component:Casetudies},
     {path:'gdpr',component:Gdpr},

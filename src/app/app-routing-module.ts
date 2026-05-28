@@ -30,6 +30,7 @@ import { Gdpr } from './components/gdpr/gdpr';
 import { Termsconditions } from './components/termsconditions/termsconditions';
 import { Mediakit } from './components/mediakit/mediakit';
 import { BlogDetails } from './components/blog-details/blog-details';
+import { InfoDetails } from './components/info-details/info-details';
 
 const routes: Routes = [
 
@@ -60,6 +61,8 @@ const routes: Routes = [
   {path:'articles', component:Article},
   {path:'privacy-policy', component:PrivacyPolicy},
   {path:'blogdetails/:id',component:BlogDetails},
+    {path:'infodetails/:id',component:InfoDetails},
+  
   {path:'casestudies',component:Casetudies},
   {path:'gdpr',component:Gdpr},
   {path:'termsconditions',component:Termsconditions},
