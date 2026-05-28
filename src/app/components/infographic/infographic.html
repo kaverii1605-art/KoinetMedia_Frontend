@@ -8,11 +8,15 @@
   </p>
 </div>
 
-<div class="container mt-5 text-center">
+<div class="blog-page container mt-5">
 
-  <h2 class="mb-4">Latest Infographics</h2>
+  <div class="blog-top text-center">
+    <span class="blog-kicker">Koinet Visual Insights</span>
+    <h2 class="blog-heading">Latest Infographics</h2>
+    <p class="blog-desc">Explore fresh visual insights, trends, and expert data stories.</p>
+  </div>
 
-  <div class="search-bar mb-4">
+  <div class="search-bar">
     <input
       type="text"
       class="form-control"
@@ -22,47 +26,40 @@
     >
   </div>
 
-  <div class="row">
-
+  <div class="blog-grid">
     <div
-      class="col-md-4 mb-4"
-      *ngFor="let info of filteredInfo | slice:0:visibleCount"
+      class="blog-card"
+      *ngFor="let info of filteredInfo | slice:0:visibleCount; let i = index"
+      [style.animationDelay]="(i * 0.08) + 's'"
     >
 
-      <div class="card h-100 shadow-sm">
-
+      <div class="blog-img">
         <img
           [src]="info.imageUrl || info.image || 'assets/images/default-blog.jpg'"
-          class="card-img-top"
           alt="infographic image"
-          style="height:220px; object-fit:cover;"
         >
+      </div>
 
-        <div class="card-body">
+      <div class="blog-content">
+        <span class="blog-badge">Infographic</span>
 
-          <h5 class="card-title">
-            {{ info.title }}
-          </h5>
+        <h5>{{ info.title }}</h5>
 
-          <p class="card-text">
-            {{ info.content | slice:0:120 }}...
-          </p>
-
-        </div>
-
+        <p>{{ info.content | slice:0:120 }}...</p>
       </div>
 
     </div>
-
   </div>
 
-  <button
-    *ngIf="visibleCount < filteredInfo.length"
-    class="btn btn-primary mt-4"
-    (click)="loadMore()"
-  >
-    View More
-  </button>
+  <div class="text-center">
+    <button
+      *ngIf="visibleCount < filteredInfo.length"
+      class="load-more-btn"
+      (click)="loadMore()"
+    >
+      View More Infographics
+    </button>
+  </div>
 
 </div>
 

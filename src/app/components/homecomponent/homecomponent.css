@@ -59,6 +59,19 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* stop slider on hover */
+.blog-slider:hover .blog-track,
+.infographic-slider:hover .infographic-track {
+  animation-play-state: paused;
+}
+
+/* make full card clickable feel */
+.blog-card,
+.infographic-card {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
