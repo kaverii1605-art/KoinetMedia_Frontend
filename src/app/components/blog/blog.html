@@ -1,0 +1,122 @@
+<div class="hero">
+    <h1 class="display-4 fw-bold text-uppercase tracking-widest">
+        Stay Ahead with the Latest Blog
+    </h1>
+
+    <p class="lead">
+        Explore the latest trends, news, and expert opinions
+    </p>
+</div>
+
+<!-- Blog Section -->
+<!-- Blog Section -->
+<div class="blog-page container mt-5">
+
+  <div class="blog-top text-center">
+    <span class="blog-kicker">Koinet Insights</span>
+    <h2 class="blog-heading">Latest Blogs</h2>
+    <p class="blog-desc">Read fresh insights, trends, and expert opinions.</p>
+  </div>
+
+  <!-- Search -->
+  <div class="search-bar">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search blogs by name or category"
+      [(ngModel)]="searchText"
+      (input)="searchBlogs()"
+    >
+  </div>
+
+  <!-- Featured Blog -->
+ <div class="blog-grid">
+  <div
+    class="blog-card"
+    *ngFor="let blog of filteredBlogs | slice:0:visibleCount; let i = index"
+    [style.animationDelay]="(i * 0.08) + 's'"
+  >
+
+    <div class="blog-img">
+      <img [src]="blog.imageUrl" alt="blog image">
+    </div>
+
+    <div class="blog-content">
+      <span class="blog-badge">{{ blog.category }}</span>
+
+      <h5>{{ blog.title }}</h5>
+
+      <p>{{ blog.content | slice:0:110 }}...</p>
+
+      <a class="read-more" [routerLink]="['/blogdetails', blog.id || blog._id]">
+        Read More →
+      </a>
+    </div>
+  </div>
+</div>
+
+  <!-- Blog Cards -->
+  <div class="blog-grid">
+    <div
+      class="blog-card"
+      *ngFor="let blog of filteredBlogs.slice(1, visibleCount); let i = index"
+      [style.animationDelay]="(i * 0.08) + 's'"
+    >
+
+      <div class="blog-img">
+        <img [src]="blog.imageUrl" alt="blog image">
+      </div>
+
+      <div class="blog-content">
+        <span class="blog-badge">{{ blog.category }}</span>
+
+        <h5>{{ blog.title }}</h5>
+
+        <p>{{ blog.content | slice:0:110 }}...</p>
+
+        <a class="read-more" [routerLink]="['/blogdetails', blog.id]">
+          Read More →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- View More -->
+  <div class="text-center">
+    <button
+      *ngIf="visibleCount < filteredBlogs.length"
+      class="load-more-btn"
+      (click)="loadMore()"
+    >
+      View More Blogs
+    </button>
+  </div>
+
+
+  
+
+</div>
+
+
+<!-- Newsletter -->
+<div class="container mt-5">
+
+    <div class="newsletter">
+
+        <h2>Subscribe to Our Newsletter</h2>
+
+        <p>Get the latest blogs straight to your inbox</p>
+
+        <input
+            type="email"
+            class="form-control mb-3"
+            placeholder="Enter your email"
+        >
+
+        <button class="btn btn-primary fw-bold">
+            Subscribe
+        </button>
+
+    </div>
+
+</div>

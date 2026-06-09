@@ -1,0 +1,90 @@
+<div class="hero">
+  <h1 class="display-4 fw-bold text-uppercase tracking-widest">
+    Stay Ahead with the Latest Infographics
+  </h1>
+
+  <p class="lead">
+    Explore the latest trends, news, and expert visual insights
+  </p>
+</div>
+
+<div class="blog-page container mt-5">
+
+  <div class="blog-top text-center">
+    <span class="blog-kicker">Koinet Visual Insights</span>
+    <h2 class="blog-heading">Latest Infographics</h2>
+    <p class="blog-desc">Explore fresh visual insights, trends, and business strategies.</p>
+  </div>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search infographics by name"
+      [(ngModel)]="searchText"
+      (input)="searchInfographics()"
+    >
+  </div>
+
+  <div class="blog-grid">
+    <div
+      class="blog-card"
+      *ngFor="let info of filteredInfo | slice:0:visibleCount; let i = index"
+      [style.animationDelay]="(i * 0.08) + 's'"
+    >
+
+      <div class="blog-img">
+        <img
+          [src]="info.imageUrl || info.image || 'assets/images/default-blog.jpg'"
+          alt="infographic image"
+        >
+      </div>
+
+      <div class="blog-content">
+        <span class="blog-badge">Infographic</span>
+
+        <h5>{{ info.title }}</h5>
+
+        <p>{{ info.content | slice:0:110 }}...</p>
+
+        <a class="read-more" [routerLink]="['/infodetails', info.id || info._id]">
+          Read More →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button
+      *ngIf="visibleCount < filteredInfo.length"
+      class="load-more-btn"
+      (click)="loadMore()"
+    >
+      View More Infographics
+    </button>
+  </div>
+
+</div>
+
+<div class="container mt-5">
+
+  <div class="newsletter">
+
+    <h2>Subscribe to Our Newsletter</h2>
+
+    <p>Get the latest infographics straight to your inbox</p>
+
+    <input
+      type="email"
+      class="form-control mb-3"
+      placeholder="Enter your email"
+    >
+
+    <button class="btn btn-primary fw-bold">
+      Subscribe
+    </button>
+
+  </div>
+
+</div>

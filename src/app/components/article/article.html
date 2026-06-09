@@ -1,0 +1,93 @@
+<div class="hero">
+  <h1 class="display-4 fw-bold text-uppercase tracking-widest">
+    Stay Ahead with the Latest Articles
+  </h1>
+
+  <p class="lead">
+    Explore the latest trends, news, and expert opinions
+  </p>
+</div>
+
+<div class="blog-page container mt-5">
+
+  <div class="blog-top text-center">
+    <span class="blog-kicker">Koinet Articles</span>
+    <h2 class="blog-heading">Latest Articles</h2>
+    <p class="blog-desc">Read fresh articles, insights, and expert opinions.</p>
+  </div>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search articles by name or category"
+      [(ngModel)]="searchText"
+      (input)="searchArticles()"
+    >
+  </div>
+
+  <div class="blog-grid">
+    <div
+      class="blog-card"
+      *ngFor="let article of filteredArticles | slice:0:visibleCount; let i = index"
+      [style.animationDelay]="(i * 0.08) + 's'"
+    >
+
+      <div class="blog-img">
+        <img
+          [src]="article.imageUrl || article.image || 'assets/images/default-blog.jpg'"
+          alt="article image"
+        >
+      </div>
+
+      <div class="blog-content">
+        <span class="blog-badge">{{ article.category }}</span>
+
+        <h5>{{ article.title }}</h5>
+
+        <p>{{ article.content | slice:0:120 }}...</p>
+<a
+  class="read-more"
+  [routerLink]="['/articledetails', article.id || article._id]"
+>
+  Read More →
+</a>
+        
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button
+      *ngIf="visibleCount < filteredArticles.length"
+      class="load-more-btn"
+      (click)="loadMore()"
+    >
+      View More Articles
+    </button>
+  </div>
+
+</div>
+
+<div class="container mt-5">
+
+  <div class="newsletter">
+
+    <h2>Subscribe to Our Newsletter</h2>
+
+    <p>Get the latest articles straight to your inbox</p>
+
+    <input
+      type="email"
+      class="form-control mb-3"
+      placeholder="Enter your email"
+    >
+
+    <button class="btn btn-primary fw-bold">
+      Subscribe
+    </button>
+
+  </div>
+
+</div>

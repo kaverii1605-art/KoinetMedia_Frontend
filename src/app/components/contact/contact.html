@@ -1,0 +1,161 @@
+<section class="contact-hero">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">Contact Us</h1>
+            <p class="animate__animated animate__fadeInUp">Any questions or remarks? Just write us a message!</p>
+        </div>
+    </section>
+
+    <!-- Contact Form and Info Section -->
+    <div class="contact-container">
+        <div class="row g-4">
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="contact-card animate__animated animate__fadeInLeft">
+                    <div class="contact-form">
+                        <h2>Send us a message</h2>
+                       <form #contactForm="ngForm" (ngSubmit)="submitForm()">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group">
+
+                <label for="email" class="form-label">Email</label>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    [(ngModel)]="contactData.email"
+                    placeholder="Enter a valid email address"
+                    required
+                >
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+
+                <label for="name" class="form-label">Name</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    [(ngModel)]="contactData.name"
+                    placeholder="Enter your Name"
+                    required
+                >
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="phone" class="form-label">Phone Number</label>
+
+        <div class="input-group">
+
+            <select
+                class="form-control border-1 text-dark"
+                id="countryCode"
+                name="countryCode"
+                style="max-width:120px;"
+            >
+                <option value="+91">India (+91)</option>
+                <option value="+1">USA (+1)</option>
+                <option value="+44">UK (+44)</option>
+            </select>
+
+            <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="phone"
+                [(ngModel)]="contactData.phone"
+                required
+            >
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="companyName" class="form-label">Company Name</label>
+
+        <input
+            type="text"
+            class="form-control"
+            id="companyName"
+            name="company"
+            [(ngModel)]="contactData.company"
+            required
+        >
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="message" class="form-label">Message</label>
+
+        <textarea
+            class="form-control"
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Your message here..."
+            [(ngModel)]="contactData.message"
+            required
+        ></textarea>
+
+    </div>
+
+    <button type="submit" class="btn btn-submit mt-3">
+        SUBMIT
+    </button>
+
+</form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="col-lg-5">
+                <div class="contact-card animate__animated animate__fadeInRight">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <h4>PHONE</h4>
+                            <p>+91 9021568448</p>
+
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>OUR OFFICE LOCATION</h4>
+                            <p>Pune, Maharashtra </p>
+                            <p>India 411014</p>
+                        </div>
+                        <a href="mailto:info@koinetmedia.com" class="contact-action-btn">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
+                        <a href="tel:+919021568448" class="contact-action-btn">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        

@@ -1,0 +1,70 @@
+<div class="blog-details-page">
+
+  <div *ngIf="!info?.title" class="text-center py-5">
+    <h3>Loading infographic...</h3>
+  </div>
+
+  <ng-container *ngIf="info?.title">
+
+    <section class="blog-hero">
+      <div class="container text-center">
+
+        <h3 class="blog-title">{{ info.title }}</h3>
+
+        <p class="blog-date">
+          <i class="bi bi-calendar3"></i>
+          {{ info.createdAt || info.date | date:'mediumDate' }}
+        </p>
+
+        <span class="blog-category">Infographic</span>
+
+      </div>
+    </section>
+
+    <section class="container py-5">
+
+      <div class="blog-image-wrapper">
+        <img
+          [src]="info.imageUrl || info.image || 'assets/images/default-blog.jpg'"
+          [alt]="info.title"
+          class="blog-main-image"
+        >
+      </div>
+
+      <div class="blog-content-box">
+
+        <p class="blog-description">
+          {{ info.description || info.shortDescription || '' }}
+        </p>
+
+        <div class="blog-content">
+          {{ info.content }}
+        </div>
+
+      </div>
+
+      <div class="blog-navigation">
+
+        <button
+          class="nav-btn"
+          (click)="prevInfo()"
+          [disabled]="currentIndex <= 0"
+        >
+          ← Previous Infographic
+        </button>
+
+        <button
+          class="nav-btn"
+          (click)="nextInfo()"
+          [disabled]="currentIndex >= infographics.length - 1"
+        >
+          Next Infographic →
+        </button>
+
+      </div>
+
+    </section>
+
+  </ng-container>
+
+</div>

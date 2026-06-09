@@ -1,0 +1,71 @@
+  <div class="container">
+        <div class="row">
+            <div class="col-12" style="margin-top: 70px;">
+                <div>
+                    <h1 class="fw-bold text-center my-5">
+                        <span class="text-primary">C</span>ase <span class="text-primary">S</span>tudies Of <span class="text-primary">K</span>oinet <span class="text-primary">M</span>edia</h1>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <img src="/assets/images/MediaKit.png" alt="casestudies" class="img-fluid" />
+                        </div>
+                        <div class="text-center my-3">
+<button type="button" class="btn btn-primary btn-lg p-4 hover_btn" (click)="openModal()">
+  Download Now
+</button>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+   <div class="modal fade professional-modal" id="welcomeModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content case-modal-content shadow border-0">
+
+      <button type="button" class="btn-close modal-close-btn" (click)="closeModal()"></button>
+
+      <div class="modal-body text-center">
+
+        <div class="modal-logo-box">
+          <img src="assets/images/knm.png" class="img-fluid" width="180">
+        </div>
+
+      
+
+        <p class="modal-small-title">Case-Studies Of Koinet Media</p>
+
+        <h2 class="modal-main-title">
+          Thank you for your interest!
+        </h2>
+
+        <p class="modal-desc">
+          Enter your email to download our case studies. Our team will get in touch with you shortly.
+        </p>
+
+        <form (ngSubmit)="submitForm()" #mediaForm="ngForm" class="download-form">
+          <div class="input-wrapper">
+            <!-- <i class="fas fa-envelope"></i> -->
+
+            <input
+              class="form-control popupBg"
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              placeholder="Enter your email"
+              required>
+          </div>
+
+          <button type="submit" class="download-btn">
+            <i class="fas fa-download me-2"></i>
+            Download PDF
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
