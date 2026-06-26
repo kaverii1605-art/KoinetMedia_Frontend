@@ -42,7 +42,7 @@ export class Casetudies {
         form_type: 'Media Kit Download'
       })
     }).then(() => {
-      window.open('assets/pdf/dummy-pdf_2.pdf', '_blank');
+      window.open('assets/pdf/Case_Study.pdf', '_blank');
       this.closeModal();
     });
   }

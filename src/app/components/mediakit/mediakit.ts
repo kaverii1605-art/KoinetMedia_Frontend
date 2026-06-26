@@ -45,7 +45,7 @@ export class Mediakit {
         form_type: 'Media Kit Download'
       })
     }).then(() => {
-      window.open('assets/pdf/dummy-pdf_2.pdf', '_blank');
+      window.open('assets/pdf/Media_Kit_KNM_2025N.pdf', '_blank');
       this.closeModal();
     });
   }

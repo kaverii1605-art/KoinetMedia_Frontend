@@ -68,7 +68,6 @@
 </div>
 
 <div class="container mt-5">
-
   <div class="newsletter">
 
     <h2>Subscribe to Our Newsletter</h2>
@@ -79,12 +78,14 @@
       type="email"
       class="form-control mb-3"
       placeholder="Enter your email"
+      [(ngModel)]="subscriberEmail"
     >
 
-    <button class="btn btn-primary fw-bold">
+    <button
+      class="btn btn-primary fw-bold"
+      (click)="subscribe()">
       Subscribe
     </button>
 
   </div>
-
 </div>

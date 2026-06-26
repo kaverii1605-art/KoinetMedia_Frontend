@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './experties.html',
   styleUrl: './experties.css',
 })
-export class Experties {}
+export class Experties {
+
+  scrollToServices() {
+  document.getElementById('servicess')?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+}

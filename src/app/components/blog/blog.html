@@ -35,6 +35,8 @@
     class="blog-card"
     *ngFor="let blog of filteredBlogs | slice:0:visibleCount; let i = index"
     [style.animationDelay]="(i * 0.08) + 's'"
+    [routerLink]="['/blogdetails', blog.id || blog._id]"
+    style="cursor: pointer;"
   >
 
     <div class="blog-img">
@@ -48,18 +50,27 @@
 
       <p>{{ blog.content | slice:0:110 }}...</p>
 
-      <a class="read-more" [routerLink]="['/blogdetails', blog.id || blog._id]">
+      <a
+        class="read-more"
+        [routerLink]="['/blogdetails', blog.id || blog._id]"
+        (click)="$event.stopPropagation()"
+      >
         Read More →
       </a>
     </div>
+
   </div>
 </div>
 
   <!-- Blog Cards -->
   <div class="blog-grid">
+  <a
+    class="blog-card-link"
+    *ngFor="let blog of filteredBlogs.slice(1, visibleCount); let i = index"
+    [routerLink]="['/blogdetails', blog.id]"
+  >
     <div
       class="blog-card"
-      *ngFor="let blog of filteredBlogs.slice(1, visibleCount); let i = index"
       [style.animationDelay]="(i * 0.08) + 's'"
     >
 
@@ -74,12 +85,14 @@
 
         <p>{{ blog.content | slice:0:110 }}...</p>
 
-        <a class="read-more" [routerLink]="['/blogdetails', blog.id]">
+        <span class="read-more">
           Read More →
-        </a>
+        </span>
       </div>
+
     </div>
-  </div>
+  </a>
+</div>
 
   <!-- View More -->
   <div class="text-center">
@@ -111,9 +124,12 @@
             type="email"
             class="form-control mb-3"
             placeholder="Enter your email"
+            [(ngModel)]="blogSubscriberEmail"
         >
 
-        <button class="btn btn-primary fw-bold">
+        <button
+            class="btn btn-primary fw-bold"
+            (click)="subscribeToBlog()">
             Subscribe
         </button>
 

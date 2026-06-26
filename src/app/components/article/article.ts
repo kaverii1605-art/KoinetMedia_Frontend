@@ -3,6 +3,7 @@ import { Articleservice } from '../../services/articleservice';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-article',
@@ -20,7 +21,37 @@ export class Article implements OnInit {
   visibleCount: number = 6;
   searchText: string = '';
 
-  constructor(private articleService: Articleservice) {}
+    articleSubscriberEmail: string = '';
+
+
+  constructor(private articleService: Articleservice,private http: HttpClient) {}
+
+  subscribeToArticles() {
+
+    if (!this.articleSubscriberEmail) {
+      alert('Please enter your email');
+      return;
+    }
+
+    this.http.post(
+      'https://formspree.io/f/xkolgnak', // Your Formspree Form ID
+      {
+        newsletter: 'Articles',
+        email: this.articleSubscriberEmail,
+        source: 'Article Subscription Form'
+      }
+    ).subscribe({
+      next: () => {
+        alert('Subscribed successfully!');
+        this.articleSubscriberEmail = '';
+      },
+      error: () => {
+        alert('Something went wrong. Please try again.');
+      }
+    });
+
+  }
+
 
   ngOnInit(): void {
     this.fetchArticles();

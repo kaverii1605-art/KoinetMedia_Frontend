@@ -14,6 +14,7 @@
         }   
         /* Gradient Overlay */
         
+        
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -27,6 +28,13 @@
             );  
         }
 
+       html {
+  scroll-behavior: smooth;
+}
+
+#servicess {
+  scroll-margin-top: 100px; /* adjust if you have a fixed navbar */
+}
         .hero-section::before {
         content: "";
         position: absolute;

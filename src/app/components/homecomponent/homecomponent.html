@@ -362,7 +362,13 @@
     </div>
 
     <div class="infographic-slider">
-      <div class="infographic-track">
+     <div
+     
+  class="infographic-track"
+  [ngClass]="{
+    'infographic-track-scroll': infographics.length > 1,
+    'infographic-track-static': infographics.length <= 1
+  }">
 
         <!-- Main Loop -->
         <!-- <div class="infographic-card" *ngFor="let info of infographics">
@@ -400,7 +406,7 @@
         <!-- Duplicate Loop -->
         <div
   class="infographic-card"
-  *ngFor="let info of infographics"
+  *ngFor="let info of (infographics.length > 3 ? infographics.concat(infographics) : infographics)"
   [routerLink]="['/infodetails', info.id || info._id]"
 >
 
@@ -486,7 +492,12 @@
     </div>
 
     <div class="blog-slider">
-      <div class="blog-track">
+     <div
+  class="blog-track"
+  [ngClass]="{
+    'blog-track-scroll': blogs.length > 1,
+    'blog-track-static': blogs.length <= 1
+  }">
 
         <!-- <div class="blog-card" *ngFor="let blog of blogs">
           <div class="blog-img-box">
@@ -516,8 +527,8 @@
 
         <!-- duplicate for smooth infinite running -->
         <div
-  class="blog-card"
-  *ngFor="let blog of blogs"
+   class="blog-card"
+  *ngFor="let blog of (blogs.length > 3 ? blogs.concat(blogs) : blogs)"
   [routerLink]="['/blogdetails', blog.id || blog._id]"
 >
 

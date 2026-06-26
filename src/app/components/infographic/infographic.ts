@@ -3,6 +3,7 @@ import { InfographicService } from '../../services/infographic';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-infographic',
@@ -17,10 +18,39 @@ export class Infographic implements OnInit{
    infographics: any[] = [];
   filteredInfo: any[] = [];
 
-  visibleCount: number = 7;
+  visibleCount: number = 3;
   searchText: string = '';
 
-  constructor(private infographicService: InfographicService) {}
+    subscriberEmail: string = '';
+
+
+  constructor(private infographicService: InfographicService,private http: HttpClient) {}
+
+   subscribe() {
+
+    if (!this.subscriberEmail) {
+      alert('Please enter your email');
+      return;
+    }
+
+    this.http.post(
+      'https://formspree.io/f/xkolgnak', // Replace with your Formspree ID
+      {
+        email: this.subscriberEmail
+      }
+    ).subscribe({
+      next: () => {
+        alert('Subscribed successfully!');
+        this.subscriberEmail = '';
+      },
+      error: () => {
+        alert('Something went wrong.');
+      }
+    });
+
+  }
+
+
 
   ngOnInit(): void {
     this.fetchInfographics();
@@ -41,7 +71,7 @@ export class Infographic implements OnInit{
   }
 
   loadMore(): void {
-    this.visibleCount += 6;
+    this.visibleCount += 3;
   }
 
   searchInfographics(): void {

@@ -3,6 +3,7 @@ import { Blog, Blogservice } from '../../services/blogservice';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -18,10 +19,38 @@ export class BlogComponent implements OnInit {
   blogs: Blog[] = [];
   filteredBlogs: Blog[] = [];
 
-  visibleCount: number = 7;
+  visibleCount: number = 3;
   searchText: string = '';
 
-  constructor(private blogService: Blogservice) {}
+    blogSubscriberEmail: string = '';
+
+
+  constructor(private blogService: Blogservice,private http: HttpClient) {}
+
+  subscribeToBlog() {
+
+    if (!this.blogSubscriberEmail) {
+      alert('Please enter your email');
+      return;
+    }
+
+    this.http.post(
+      'https://formspree.io/f/xkolgnak', // Replace with your Formspree Form ID
+      {
+        type: 'Blog Newsletter',
+        email: this.blogSubscriberEmail
+      }
+    ).subscribe({
+      next: () => {
+        alert('Subscribed successfully!');
+        this.blogSubscriberEmail = '';
+      },
+      error: () => {
+        alert('Something went wrong. Please try again.');
+      }
+    });
+
+  }
 
   ngOnInit(): void {
     this.fetchBlogs();
@@ -46,7 +75,7 @@ export class BlogComponent implements OnInit {
   }
 
   loadMore(): void {
-    this.visibleCount += 6;
+    this.visibleCount += 3;
   }
 
   searchBlogs(): void {
